@@ -3,9 +3,15 @@ import sqlite3
 import random
 import time
 import matplotlib.pyplot as plt
+import pandas as pd
 
 # Create an in-memory database
-conn = sqlite3.connect(":memory:")
+
+Mem_DB = ':memory:'
+File_DB = 'image.db'
+
+
+conn = sqlite3.connect(Mem_DB)
 cursor = conn.cursor()
 
 # Create the table to store real-time data
@@ -44,3 +50,11 @@ while True:
     plt.close()
 
     time.sleep(1)  # Pause for 1 second before updating the plot
+
+    # Fetch all records from Leaderboard Table
+    cursor.execute('SELECT * FROM Analytics')
+    rows = cursor.fetchall()
+
+    # Print All Data In Table Visually
+    df = pd.DataFrame(rows, columns=["Visitors", "Sales", "Clicks"])
+    print("\nAll Data: Leaderboard\n{}\n".format(df))

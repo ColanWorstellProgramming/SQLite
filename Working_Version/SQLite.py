@@ -67,10 +67,10 @@ def SQL_In_Memory():
         print("\nQuestion 4: Sort the 'Leaderboard' table in descending order based on the 'Score' column.")
         print(sorted_leaderboard)
 
-        # Question 5: Retrieve the top 2 records from the "Leaderboard" table.
-        cursor.execute("SELECT * FROM Leaderboard LIMIT 2")
+        # Question 5: Retrieve the top 3 records from the "Leaderboard" table.
+        cursor.execute("SELECT * FROM Leaderboard LIMIT 3")
         top_players = cursor.fetchall()
-        print("\nQuestion 5: Retrieve the top 2 records from the 'Leaderboard' table.")
+        print("\nQuestion 5: Retrieve the top 3 records from the 'Leaderboard' table.")
         print(top_players)
 
         # Question 6: Perform a UNION of two SELECT statements to combine the records from two tables.
