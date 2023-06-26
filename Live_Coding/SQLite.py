@@ -83,6 +83,7 @@ def SQL_In_Memory():
         print("\nQuestion 3: Retrieve all records from the 'Leaderboard' table where the 'Score' column is greater than 80.")
         print(high_score_players)
 
+
         # Question 4: Sort the "Leaderboard" table in descending order based on the "Score" column.
 
 
@@ -93,15 +94,17 @@ def SQL_In_Memory():
         print("\nQuestion 4: Sort the 'Leaderboard' table in descending order based on the 'Score' column.")
         print(sorted_leaderboard)
 
-        # Question 5: Retrieve the top 2 records from the "Leaderboard" table.
+
+        # Question 5: Retrieve the top 3 records from the "Leaderboard" table.
 
 
         cursor.execute("") ## TO DO
 
 
         top_players = cursor.fetchall()
-        print("\nQuestion 5: Retrieve the top 2 records from the 'Leaderboard' table.")
+        print("\nQuestion 5: Retrieve the top 3 records from the 'Leaderboard' table.")
         print(top_players)
+
 
         # Question 6: Perform a UNION of two SELECT statements to combine the records from two tables.
         # (Replace "Winners" table with the appropriate table name)
