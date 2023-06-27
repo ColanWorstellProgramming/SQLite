@@ -73,17 +73,10 @@ def SQL_In_Memory():
         print("\nQuestion 5: Retrieve the top 3 records from the 'Leaderboard' table.")
         print(top_players)
 
-        # Question 6: Perform a UNION of two SELECT statements to combine the records from two tables.
-        # (Replace "Winners" table with the appropriate table name)
-        cursor.execute("SELECT name FROM Leaderboard WHERE score > 90 UNION SELECT name FROM Winners")
-        combined_records = cursor.fetchall()
-        print("\nQuestion 6: Perform a UNION of two SELECT statements to combine the records from two tables.")
-        print(combined_records)
-
-        # Question 7: Find the players who have a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.
+        # Question 6: Find the players who have a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.
         cursor.execute("SELECT name FROM Leaderboard WHERE score > (SELECT AVG(score) FROM Leaderboard) ORDER BY score DESC")
         high_score_players = cursor.fetchall()
-        print("\nQuestion 7: Find the players who have a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.")
+        print("\nQuestion 6: Find the players who have a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.")
         print(high_score_players)
 
         print("\n\n")
