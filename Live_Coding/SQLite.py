@@ -7,142 +7,128 @@ import pandas as pd
 
 def SQL_In_Memory():
     """Create a Database In Memory Using SQLite"""
-    try:
 
-        # Creates connection to an in-memory database
-        Mem_DB = ':memory:'
-        File_DB = 'main.db'
 
-        # Step 1 == Create A Connection
+    # Var For Memory Path And File Path
+    Mem_DB = ':memory:'
+    File_DB = 'main.db'
 
+    # Step 1 == Create A Connection Object With A Given Path To A Database Location
 
 
-        # Step 2 == Create a cursor object that can execute SQL statements
 
+    # Step 2 == Create A Cursor Object That Can Execute SQL Statements
 
 
-        # Step 3 == Create Two Tables With Random Information
 
+    # Step 3.a == Create Tables Leaderboar and Friends
 
 
-        # Step 4 == Commit changes
 
+    # Step 3.b == Put Data In Both Tables
 
 
 
+    # Step 4 == Commit changes
 
 
 
 
 
 
-        #Prints Data
-        Print_Data(cursor)
 
 
 
 
 
+    #Prints Data
+    Print_Data(cursor)
 
 
 
-        # SQL Questions
 
 
-        # Question 1: Retrieve all columns from the "Leaderboard" table.
 
+    # SQL Questions
 
-        cursor.execute("") ## TO DO
 
+    # Question 1: Retrieve all columns from the "Leaderboard" table.
 
-        leaderboard_data = cursor.fetchall()
-        print("\nQuestion 1: Retrieve all columns from the 'Leaderboard' table.")
-        print(leaderboard_data)
 
+    cursor.execute("") ## TO DO
 
 
-        # Question 2: Find the unique values in the "Name" column of the "Leaderboard" table.
+    leaderboard_data = cursor.fetchall()
+    print("\nQuestion 1: Retrieve all columns from the 'Leaderboard' table.")
+    print(leaderboard_data)
 
 
-        cursor.execute("") ## TO DO
 
+    # Question 2: Find the unique values in the "Name" column of the "Leaderboard" table.
 
-        unique_names = cursor.fetchall()
-        print("\nQuestion 2: Find the unique values in the 'Name' column of the 'Leaderboard' table.")
-        print(unique_names)
 
+    cursor.execute("") ## TO DO
 
 
-        # Question 3: Retrieve all records from the "Leaderboard" table where the "Score" column is greater than 80.
+    unique_names = cursor.fetchall()
+    print("\nQuestion 2: Find the unique values in the 'Name' column of the 'Leaderboard' table.")
+    print(unique_names)
 
 
-        cursor.execute("") ## TO DO
 
+    # Question 3: Retrieve all records from the "Leaderboard" table where the "Score" column is greater than 80.
 
-        high_score_players = cursor.fetchall()
-        print("\nQuestion 3: Retrieve all records from the 'Leaderboard' table where the 'Score' column is greater than 80.")
-        print(high_score_players)
 
+    cursor.execute("") ## TO DO
 
-        # Question 4: Sort the "Leaderboard" table in descending order based on the "Score" column.
 
+    high_score_players = cursor.fetchall()
+    print("\nQuestion 3: Retrieve all records from the 'Leaderboard' table where the 'Score' column is greater than 80.")
+    print(high_score_players)
 
-        cursor.execute("") ## TO DO
 
+    # Question 4: Sort the "Leaderboard" table in descending order based on the "Score" column.
 
-        sorted_leaderboard = cursor.fetchall()
-        print("\nQuestion 4: Sort the 'Leaderboard' table in descending order based on the 'Score' column.")
-        print(sorted_leaderboard)
 
+    cursor.execute("") ## TO DO
 
-        # Question 5: Retrieve the top 3 records from the "Leaderboard" table.
 
+    sorted_leaderboard = cursor.fetchall()
+    print("\nQuestion 4: Sort the 'Leaderboard' table in descending order based on the 'Score' column.")
+    print(sorted_leaderboard)
 
-        cursor.execute("") ## TO DO
 
+    # Question 5: Retrieve the top 3 records from the "Leaderboard" table.
 
-        top_players = cursor.fetchall()
-        print("\nQuestion 5: Retrieve the top 3 records from the 'Leaderboard' table.")
-        print(top_players)
 
+    cursor.execute("") ## TO DO
 
-        # Question 6: Perform a UNION of two SELECT statements to combine the records from two tables.
-        # (Replace "Winners" table with the appropriate table name)
 
+    top_players = cursor.fetchall()
+    print("\nQuestion 5: Retrieve the top 3 records from the 'Leaderboard' table.")
+    print(top_players)
 
-        cursor.execute("") ## TO DO
 
+    # Question 6: Find the players name who has a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.
 
-        combined_records = cursor.fetchall()
-        print("\nQuestion 6: Perform a UNION of two SELECT statements to combine the records from two tables.")
-        print(combined_records)
 
+    cursor.execute("") ## TO DO
 
-        # Question 7: Find the players who have a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.
 
+    high_score_players = cursor.fetchall()
+    print("\nQuestion 6: Find the players name who has a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.")
+    print(high_score_players)
 
-        cursor.execute("") ## TO DO
+    print("\n\n")
 
 
-        high_score_players = cursor.fetchall()
-        print("\nQuestion 7: Find the players who have a score higher than the average score in the Leaderboard table and sort them in descending order of their scores.")
-        print(high_score_players)
+    if cursor:
+        cursor.close()
+        print("Cursor closed.")
 
-        print("\n\n")
-
-    except err:
-        print(err)
-
-
-    finally:
-
-        if cursor:
-            cursor.close()
-            print("Cursor closed.")
-
-        if conn:
-            conn.close()
-            print("Connection closed.")
+    if conn:
+        conn.close()
+        print("Connection closed.")
 
 
 def Print_Data(cursor):
@@ -154,8 +140,8 @@ def Print_Data(cursor):
     df = pd.DataFrame(rows, columns=['id', 'name', 'score'])
     print("\nAll Data: Leaderboard\n{}\n".format(df))
 
-    # Fetch all records from Winners Table
-    cursor.execute('SELECT * FROM Winners')
+    # Fetch all records from Friends Table
+    cursor.execute('SELECT * FROM Friends')
     rowsX = cursor.fetchall()
 
     # Print All Data In Table Visually
